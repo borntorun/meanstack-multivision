@@ -1,7 +1,23 @@
+//main page index
 extends ../includes/masterlayout
 
 block main-content
-    section.modal-content
+    .navbar.navbar-inverse.navbar-fixed-top
+        .container
+            .navbar-header
+                a.navbar-brand(href="/") Multivision
+                    h6 - Extreme Tech Training
+            .navbar-collapse.collapse
+                ul.nav.navbar-nav
+                    li
+                        a(href="/") Home
+                    //-li
+                    //-    a(href="/") View
+                    //-li
+                    //-    a(href="/") About
+                div(ng-include="'/partials/account/navbar-login'")
+    section.content
         div(ng-view)
-    h2= mensagem
 
+    footer.container.text-center
+        p &copy; 2014 - jmmtcarvalho demo Multivision

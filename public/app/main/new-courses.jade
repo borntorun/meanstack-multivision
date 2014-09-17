@@ -1,0 +1,6 @@
+.panel.panel-primary
+    .panel-heading.text-capitalize.text-center new courses
+    .panel-body
+        .row.text-left(ng-repeat="course in courses | filter: {featured:false} | orderBy:'published':true | limitTo:10")
+            .col-md-3.text-right {{course.published | date:'yyyy MMM d'}}
+            .col-md-9.text-right {{course.name}}
