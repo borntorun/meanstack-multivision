@@ -27,4 +27,5 @@ app.listen(config.port);
 
 //#1
 // http.createServer(app).listen(port);
-console.log('A escutar a porta ' + config.port + '...');
+console.log('A escutar a porta ' + config.port);
+console.log('...');
