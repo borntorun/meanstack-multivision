@@ -1,7 +1,7 @@
 meanstack-multivision
 =====================
 
-Meanstack Multivision Demo
+MeanStack Multivision Demo
 --------------------------
 This project and the code are experimental and for study purposes.
 
