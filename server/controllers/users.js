@@ -44,9 +44,9 @@ exports.updateCurrentUser = function(req, res) {
     console.log(userDataUpdate._id);
 
 
-    if(/*req.user._id != userDataUpdate._id && */!req.user.hasRole('admin')) {
+    if(req.user._id != userDataUpdate._id && !req.user.hasRole('admin')) {
         res.status(403);
-        return res.end();
+        return res.send({reason:'Ony admin can update other users!'});
     }
 
     req.user.firstName = userDataUpdate.firstName;

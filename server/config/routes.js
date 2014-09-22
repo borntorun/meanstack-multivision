@@ -1,5 +1,6 @@
 var auth = require('./auth'),
     users = require('../controllers/users'),
+    courses = require('../controllers/courses'),
     mongoose = require('mongoose'),
     User = mongoose.model('user');
 
@@ -11,12 +12,11 @@ module.exports = function(app) {
 
      */
 
-    app.get('/api/users',
-        auth.requiresRole('admin'),
-        users.getUsers);
+    app.get('/api/users', auth.requiresRole('admin'), users.getUsers);
     app.post('/api/users', users.createUser);
     app.put('/api/users', users.updateCurrentUser);
 
+    app.get('/api/courses', courses.getCourses);
 
     //definir route para partials views
     /* 1ª forma: apenas um folder para todas as views partials
@@ -59,6 +59,11 @@ module.exports = function(app) {
         req.logout();//function automaticly added by passport module
         res.end();
     });
+
+    app.all('/api/*', function(req, res) {
+        res.send(404);
+    });
+
 
     //definir como rotear a página index
     app.get('*', function(req, res) {
