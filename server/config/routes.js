@@ -1,4 +1,5 @@
 var auth = require('./auth'),
+    users = require('../controllers/users'),
     mongoose = require('mongoose'),
     User = mongoose.model('user');
 
@@ -12,11 +13,8 @@ module.exports = function(app) {
 
     app.get('/api/users',
         auth.requiresRole('admin'),
-        function(req, res) {
-            User.find({}).exec(function(err, collection) {
-                res.send(collection);
-            });
-        });
+        users.getUsers);
+    app.post('/api/users', users.createUser);
 
 
     //definir route para partials views

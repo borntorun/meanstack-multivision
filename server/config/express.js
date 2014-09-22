@@ -8,9 +8,7 @@ var express = require('express'),
 
 
 module.exports = function(app, config) {
-    function compile(str, path) {
-        return stylus(str).set('filename', path);
-    }
+
 
     //configurar a aplicação
     app.set('view engine', 'jade');
@@ -28,6 +26,9 @@ module.exports = function(app, config) {
 
 
     //midleware for stylus
+    function compile(str, path) {
+        return stylus(str).set('filename', path);
+    }
     app.use(stylus.middleware(
         {
             src: config.rootPath + '/public',
@@ -51,4 +52,4 @@ module.exports = function(app, config) {
      }
      }));
      */
-}
+};
