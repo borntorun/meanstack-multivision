@@ -12,11 +12,12 @@ module.exports = function() {
                      console.log(user);
                      console.log('-----------------');
                      */
+                    /*
                     user = user.toObject();
                     delete user.hashed_pwd;
-                    delete user.salt;
-                    //user.hashed_pwd='';
-                    //user.salt='';
+                    delete user.salt;*/
+                    user.hashed_pwd='';
+                    user.salt='';
                     /*
                      console.log(user);
                      */
@@ -60,10 +61,12 @@ module.exports = function() {
 
             if(user) {
                 /*console.log(user);*/
-                user = user.toObject();
+                /*user = user.toObject();
                 delete user.hashed_pwd;
-                delete user.salt;
+                delete user.salt;*/
                 /*console.log(user);*/
+                user.hashed_pwd='';
+                user.salt='';
                 return done(null, user);
             } else {
                 return done(null, false);

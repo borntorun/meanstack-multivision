@@ -15,6 +15,7 @@ module.exports = function(app) {
         auth.requiresRole('admin'),
         users.getUsers);
     app.post('/api/users', users.createUser);
+    app.put('/api/users', users.updateCurrentUser);
 
 
     //definir route para partials views

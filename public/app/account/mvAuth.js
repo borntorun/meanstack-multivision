@@ -33,6 +33,20 @@ angular.module('app')
             });
             return dfd.promise;
         },
+        updateCurrentUser: function(newUserData) {
+            var cloneUser = angular.copy(mvIdentity.getCurrentUser());
+            angular.extend(cloneUser, newUserData);
+
+            var dfd = $q.defer();
+
+            cloneUser.$update().then(function() {
+                mvIdentity.setCurrentUser(cloneUser);
+                dfd.resolve();
+            }, function(response) {
+                dfd.reject(response.data.reason);
+            });
+            return dfd.promise;
+        },
 
         logoutUser: function() {
             var dfd = $q.defer();
@@ -48,6 +62,13 @@ angular.module('app')
             } else {
                 return $q.reject('notAuthorized');//label pode ser qualquer
             }
-        }
+        },
+        authorizeAuthenticatedUserForRoute: function() {
+            if(mvIdentity.isAuthenticated()) {
+                return true;
+            } else {
+                return $q.reject('notAuthorized');//label pode ser qualquer
+            }
+        },
     }
 });
