@@ -17,6 +17,7 @@ module.exports = function(app) {
     app.put('/api/users', users.updateCurrentUser);
 
     app.get('/api/courses', courses.getCourses);
+    app.get('/api/courses/:id', courses.getCourseById);
 
     //definir route para partials views
     /* 1ª forma: apenas um folder para todas as views partials
