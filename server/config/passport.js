@@ -16,8 +16,8 @@ module.exports = function() {
                     user = user.toObject();
                     delete user.hashed_pwd;
                     delete user.salt;*/
-                    user.hashed_pwd='';
-                    user.salt='';
+                    /*user.hashed_pwd='';
+                    user.salt='';*/
                     /*
                      console.log(user);
                      */
@@ -65,8 +65,8 @@ module.exports = function() {
                 delete user.hashed_pwd;
                 delete user.salt;*/
                 /*console.log(user);*/
-                user.hashed_pwd='';
-                user.salt='';
+                /*user.hashed_pwd='';
+                user.salt='';*/
                 return done(null, user);
             } else {
                 return done(null, false);

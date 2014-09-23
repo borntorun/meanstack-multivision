@@ -53,10 +53,16 @@ exports.updateCurrentUser = function(req, res) {
     req.user.lastName = userDataUpdate.lastName;
     req.user.userName = userDataUpdate.userName;
 
+    console.log(req.user);
+    console.log(userDataUpdate.password);
+    if (userDataUpdate.password) {console.log(userDataUpdate.password.length);};
+
     if(userDataUpdate.password && userDataUpdate.password.length > 0) {
         req.user.salt = encrypt.createSalt();
         req.user.hashed_pwd = encrypt.hashPwd(req.user.salt, userDataUpdate.password);
     }
+    console.log(req.user);
+
     req.user.save(function(err) {
         if(err) {
             res.status(400);
