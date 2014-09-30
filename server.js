@@ -29,4 +29,5 @@ app.listen(config.port);
 // http.createServer(app).listen(port);
 
 console.log('A escutar a porta ' + config.port);
+
 console.log('...');
